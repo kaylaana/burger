@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://mxe7u8vjbnhv"]
+
+[ext_resource type="Script" uid="uid://crngk4pu8x8sr" path="res://play.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://c8b25y70l5y4v" path="res://options.gd" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://cggioh3mg33vp" path="res://quit.gd" id="2_jix8l"]
+
+[node name="Main Menu" type="Node2D" unique_id=1142078697]
+position = Vector2(84, 25)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1198995096]
+
+[node name="Control" type="Control" parent="." unique_id=297024341]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 115.0
+offset_bottom = 52.0
+
+[node name="Options" type="Button" parent="Control" unique_id=560656406]
+layout_mode = 0
+offset_left = -165.0
+offset_top = -12.0
+offset_right = 160.0
+offset_bottom = 70.0
+text = "OPTIONS"
+script = ExtResource("1_fu7sn")
+
+[node name="Quit" type="Button" parent="Control" unique_id=1781653123]
+layout_mode = 0
+offset_left = -164.0
+offset_top = 86.0
+offset_right = 160.0
+offset_bottom = 177.0
+text = "QUIT"
+script = ExtResource("2_jix8l")
+
+[node name="Play" type="Button" parent="Control" unique_id=1694715642]
+layout_mode = 0
+offset_left = -165.0
+offset_top = -114.0
+offset_right = 163.0
+offset_bottom = -27.0
+text = "PLAY"
+script = ExtResource("1_06t4h")
+
+[connection signal="pressed" from="Control/Options" to="Control/Play" method="_on_options_pressed"]
+[connection signal="pressed" from="Control/Play" to="Control/Play" method="_on_pressed"]

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bkw5x6i458w71"]
+
+[ext_resource type="Texture2D" uid="uid://byegah6tjrsq" path="res://sprite.png" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://iifqq43bg7pl" path="res://burger.png" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://ds7g2p86faptd" path="res://today.gd" id="3_fc0e3"]
+[ext_resource type="Script" uid="uid://cxg0sbmf66wk8" path="res://burger!!.gd" id="4_7jktm"]
+
+[node name="Node2D" type="Node2D" unique_id=276146801]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1750956436]
+scale = Vector2(3.002815, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=386193509]
+texture_filter = 3
+scale = Vector2(3.002815, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1368415166]
+scale = Vector2(3.002815, 1)
+
+[node name="guy" type="Sprite2D" parent="." unique_id=2045890374]
+texture_filter = 3
+position = Vector2(-204.00003, -31)
+scale = Vector2(-11.859359, 10.031448)
+texture = ExtResource("1_80nbo")
+
+[node name="Burger" type="Sprite2D" parent="." unique_id=670839763]
+texture_filter = 3
+position = Vector2(221, 0)
+scale = Vector2(8.291667, 10.604167)
+texture = ExtResource("2_e2o6t")
+
+[node name="Control" type="Control" parent="." unique_id=712118627]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="today" type="Button" parent="Control" unique_id=1346427064]
+layout_mode = 0
+offset_left = -114.0
+offset_top = -284.0
+offset_right = 212.0
+offset_bottom = -193.0
+text = "Today I wanna eat...."
+script = ExtResource("3_fc0e3")
+
+[node name="BURGER!!" type="Button" parent="Control" unique_id=803879823]
+visible = false
+layout_mode = 0
+offset_left = -114.0
+offset_top = -284.0
+offset_right = 212.0
+offset_bottom = -193.0
+text = "BURGERRR!!"
+script = ExtResource("4_7jktm")
+
+[connection signal="pressed" from="Control/today" to="Control/BURGER!!" method="_on_today_pressed"]

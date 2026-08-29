@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://dcrltum26r4kw"]
+
+[sub_resource type="GDScript" id="GDScript_5d0xu"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	get_tree().change_scene_to_file(\"res://horror.tscn\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	get_tree().change_scene_to_file(\"res://quit.gd\")
+
+
+func _on_start_pressed():
+	
+	pass # Replace with function body.
+
+
+func _on_quit_pressed():
+	pass # Replace with function body.
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_23rav"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	get_tree().change_scene_to_file(\"res://horror.tscn\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	get_tree().change_scene_to_file(\"res://horror.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_5bx33"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _on_quit_pressed():
+	get_tree().change_scene_to_file(\"res://quit.gd\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _on_settings(delta):
+	get_tree().change_scene_to_file(\"res://settings.gd\")
+"
+
+[sub_resource type="GDScript" id="GDScript_7th6t"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _on_start():
+	get_tree().change_scene_to_file(\"res://start.gd\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	get_tree().change_scene_to_file(\"res://process.gd\")
+
+
+func _on_quit_pressed():
+	get_tree().change_scene_to_file(\"res://quit.gd\")
+"
+
+[node name="main menu" type="Control" unique_id=506575540]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -541.0
+offset_top = -248.0
+offset_right = -541.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_5d0xu")
+
+[node name="Start" type="Button" parent="." unique_id=288191662]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 4.576
+offset_left = 357.0
+offset_top = 227.0
+offset_right = -184.97607
+offset_bottom = 262.0
+text = "START GAME"
+script = SubResource("GDScript_23rav")
+
+[node name="Quit" type="Button" parent="." unique_id=1704294934]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 320.0
+offset_right = 505.0
+offset_bottom = 361.0
+text = "QUIT
+"
+script = SubResource("GDScript_5bx33")
+
+[node name="Settings" type="Button" parent="." unique_id=1695463168]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 272.0
+offset_right = 506.0
+offset_bottom = 313.0
+text = "SETTINGS"
+script = SubResource("GDScript_7th6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1115095042]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=876340213]
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Quit" to="Settings" method="_on_quit_pressed"]
